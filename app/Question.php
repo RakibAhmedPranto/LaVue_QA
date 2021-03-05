@@ -11,10 +11,10 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function setTitleAttribute($value){
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = \Illuminate\Support\Str::slug($value);
-    }
+    // public function setTitleAttribute($value){
+    //     $this->attributes['title'] = $value;
+    //     $this->attributes['slug'] = \Illuminate\Support\Str::slug($value);
+    // }
 
     public function getStatusAttribute(){
         if($this->answers> 0){
