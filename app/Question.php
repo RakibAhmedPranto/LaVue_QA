@@ -12,7 +12,17 @@ class Question extends Model
     }
 
     public function setTitleAttribute($value){
-        $this->attributes['title'] = $values;
-        $this->attributes['slug'] = str_slug($values);
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = \Illuminate\Support\Str::slug($value);
+    }
+
+    public function getStatusAttribute(){
+        if($this->answers> 0){
+            if( $this->best_answer_id){
+                return "answered-accepted";
+            }
+            return "answered";
+        }
+        return "unanswered";
     }
 }
