@@ -54,4 +54,27 @@ class QuestionController extends Controller
             return redirect('questions/create')->with('error','Question Could Not Be Saved Successfully');
         }
     }
+
+
+    public function show($slug)
+    {
+      $target = Question::where('slug',$slug)->first();
+
+        // echo"<pre>";
+        // print_r($target->toArray());
+        // exit;
+        // $parsedown = new \Parsedown();
+        // $body = $parsedown->text($target->body);
+        $target->increment('views');
+
+      if(!is_null($target))
+      {
+        return view('questions.show',compact('target'));
+      }
+      else
+      {
+        session()->flash('errors','sorry!! there is no blog by this url...');
+        return redirect('questions');
+      }
+    }
 }

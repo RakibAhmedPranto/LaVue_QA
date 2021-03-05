@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="mt-0"><a href="">{{ $question->title }}</a></h3>
+                                        <h3 class="mt-0"><a href="{!! route('questions.show',$question->slug) !!}">{{ $question->title }}</a></h3>
                                         <p class="lead">
                                             Asked by
                                             <a href="">{{ $question->user->name }}</a>
