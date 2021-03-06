@@ -44,7 +44,7 @@ class QuestionController extends Controller
         $target->slug = preg_replace('/\s+/u', '-', trim($request->title)) ."-". $rand ;
         $target->body = $request->body;
         $target->views = 0;
-        $target->answers = 0;
+        $target->answer_count = 0;
         $target->votes = 0;
         $target->user_id = Auth::user()->id;
 
